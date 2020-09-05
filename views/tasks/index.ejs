@@ -28,7 +28,9 @@ var TaskIndex = {
         if(task_items instanceof Array){
 //            console.log(task_items );
             task_items.map(function(object, index){
-                wasm.wasm_put_item("ul_post_wrap", String(object.title), String(object.id));
+                var json = JSON.stringify( object );
+                wasm.wasm_put_json("ul_post_wrap", String(json) );
+//                wasm.wasm_put_item("ul_post_wrap", String(object.title), String(object.id));
             })
         }
     },
